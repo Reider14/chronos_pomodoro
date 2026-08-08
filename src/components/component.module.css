@@ -1,0 +1,8 @@
+.container {
+  max-width: 98.2rem; /* 982px */
+  margin: 0 auto; /*O auto nas laterais faz o navegador distribuir o espaço disponível igualmente.*/
+}
+
+.content {
+  margin: 3.2rem;
+}
