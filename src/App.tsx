@@ -7,7 +7,7 @@ import "./styles/global.css";
 export function App() {
   return (
     <>
-      <Heading/>
+      <Heading>Champions League</Heading>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
         necessitatibus sint voluptatibus, sunt rem non tenetur. Velit ex
