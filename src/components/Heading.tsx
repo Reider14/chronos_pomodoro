@@ -1,8 +1,14 @@
 import styles from './Heading.module.css'
 
-export function Heading(props){
+// tipagem
+type HeadingProps = {
+    children: React.ReactNode
+}
+
+// destructuring objeto props
+export function Heading({children}: HeadingProps) {
     console.log(styles)
     return (
-        <h1 className={styles.heading}>{props.children}</h1>
+        <h1 className={styles.heading}>{children}</h1>
     )
 }
