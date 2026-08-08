@@ -11,7 +11,31 @@ export function App() {
       <div className="container">
         <div className="content">
           <section>
-            lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            LOGO
+          </section>
+        </div>
+      </div>
+
+       <div className="container">
+        <div className="content">
+          <section>
+            TIMER
+          </section>
+        </div>
+      </div>
+
+       <div className="container">
+        <div className="content">
+          <section>
+            FORM
+          </section>
+        </div>
+      </div>
+
+       <div className="container">
+        <div className="content">
+          <section>
+            FOTETER
           </section>
         </div>
       </div>
