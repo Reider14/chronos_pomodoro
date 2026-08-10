@@ -4,6 +4,7 @@ import { Logo } from "./components/Logo";
 import "./styles/theme.css";
 import "./styles/global.css";
 import { Menu } from "./components/Menu";
+import { ContDown } from "./components/countDown";
 
 export function App() {
   return (
@@ -13,6 +14,9 @@ export function App() {
       </Component>
       <Component>
         <Menu />
+      </Component>
+      <Component>
+        <ContDown />
       </Component>
     </>
   );
