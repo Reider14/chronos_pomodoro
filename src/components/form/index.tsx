@@ -8,7 +8,12 @@ export function Form() {
     <>
       <div className={styles.form}>
         <div className={styles.formRow}>
-          <DefaultInput id="meuInput" type="text" labelText="Task" />
+          <DefaultInput
+            id="meuInput"
+            type="text"
+            labelText="Task"
+            placeholder="Digite a tarefa ..."
+          />
         </div>
         <div>
           <p className={styles.legenda}>
