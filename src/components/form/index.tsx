@@ -27,8 +27,7 @@ export function Form() {
           <Cycles />
         </div>
         <div className={styles.formRow}>
-          <DefaultButton color="green" icon={<PlayCircleIcon />} />
-          <DefaultButton color="red" icon={<StopCircleIcon />} />
+          <DefaultButton icon={<PlayCircleIcon />} />
         </div>
       </div>
     </>
