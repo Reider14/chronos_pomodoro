@@ -1,3 +1,4 @@
+import { DefaultInput } from "../defaultInput";
 import styles from "./styles.module.css";
 
 //ctrl + f to replace
@@ -7,15 +8,7 @@ export function Form() {
     <>
       <div className={styles.form}>
         <div className={styles.formRow}>
-          <label className={styles.label} htmlFor="input">
-            Task
-          </label>
-          <input
-            className={styles.input}
-            id="input"
-            type="text"
-            placeholder="Enter your task"
-          />
+          <DefaultInput id="meuInput" type="text" />
         </div>
         <div>
           <p className={styles.legenda}>
