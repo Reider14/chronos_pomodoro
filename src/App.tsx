@@ -1,10 +1,11 @@
 import { Component } from "./components/Container";
 import { Logo } from "./components/Logo";
+import { Menu } from "./components/Menu";
+import { ContDown } from "./components/countDown";
+import { Form } from "./components/form";
 
 import "./styles/theme.css";
 import "./styles/global.css";
-import { Menu } from "./components/Menu";
-import { ContDown } from "./components/countDown";
 
 export function App() {
   return (
@@ -17,6 +18,9 @@ export function App() {
       </Component>
       <Component>
         <ContDown />
+      </Component>
+      <Component>
+        <Form />
       </Component>
     </>
   );

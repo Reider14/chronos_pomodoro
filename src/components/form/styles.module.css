@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
+}
+
+.input {
+  width: 20rem;
+  align-self: center;
+}
+
+span {
+  font-weight: bold;
+}
+
+.legenda {
+  margin-top: 1rem;
+  text-align: center;
+}
