@@ -8,7 +8,7 @@ export function Form() {
     <>
       <div className={styles.form}>
         <div className={styles.formRow}>
-          <DefaultInput id="meuInput" type="text" />
+          <DefaultInput id="meuInput" type="text" labelText="Task" />
         </div>
         <div>
           <p className={styles.legenda}>
