@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { useTaskContext } from "../../context/TaskContext/usetaskContext";
 import type { TaskModel } from "../../model/taskModel";
 import { getNextCycles } from "../../utils/getNextCycles";
+import { getNextCyclesType } from "../../utils/getNextCyclesType";
 
 export function Form() {
   const { state, setState } = useTaskContext();
@@ -14,6 +15,7 @@ export function Form() {
 
   // o cycles so e atualizado depois de enviar o form
   const nextCycle = getNextCycles(state.currentCycle);
+  const nextCycleType = getNextCyclesType(nextCycle);
 
   // envio do formulário
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
@@ -37,7 +39,7 @@ export function Form() {
       completeDate: null,
       interruptDate: null,
       duration: 1,
-      type: "workTime",
+      type: nextCycleType,
     };
 
     const secondsRemaining = newTask.duration * 60;
