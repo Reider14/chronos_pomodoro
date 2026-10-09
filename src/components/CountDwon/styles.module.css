@@ -1,0 +1,10 @@
+.container {
+  font-size: clamp(
+    8rem,
+    30vw,
+    16rem
+  ); /*tamanho minimo, percenteagem da tela, tamanho maximo || Controla o tamanho responsivo dos caracteres.*/
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5; /* Ajusta o espaçamento entre as linhas */
+}
