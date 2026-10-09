@@ -3,12 +3,15 @@ import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
 import { DefaultButton } from "../DefaultButton";
 import styles from "./styles.module.css";
+import { useState } from "react";
 
 export function Form() {
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log("Form submitted");
   }
+
+  const [tankName, setTaskName] = useState(" ");
 
   return (
     <>
@@ -19,6 +22,8 @@ export function Form() {
             type="text"
             labelText="Task"
             placeholder="What do you want to do?"
+            value={tankName}
+            onChange={(e) => setTaskName(e.target.value)}
           />
         </div>
 
