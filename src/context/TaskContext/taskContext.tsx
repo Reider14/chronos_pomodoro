@@ -7,6 +7,7 @@ type taskContext = {
   setState: React.Dispatch<React.SetStateAction<TaskStateModel>>;
 };
 
+//Se não existir Provider, este será o valor padrão.
 const initialContextValue = {
   state: initialTaskState,
   setState: () => {},

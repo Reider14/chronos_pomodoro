@@ -12,6 +12,7 @@ export function DefaultInput({
   labelText,
   type,
   placeholder,
+  ...props
 }: DefaultInputProps) {
   return (
     <>
@@ -23,6 +24,7 @@ export function DefaultInput({
         id={id}
         type={type}
         placeholder={placeholder}
+        {...props}
       />
     </>
   );

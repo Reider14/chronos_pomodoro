@@ -3,15 +3,59 @@ import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
 import { DefaultButton } from "../DefaultButton";
 import styles from "./styles.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useTaskContext } from "../../context/TaskContext/usetaskContext";
+import type { TaskModel } from "../../model/taskModel";
+import { getNextCycles } from "../../utils/getNextCycles";
 
 export function Form() {
+  const { state, setState } = useTaskContext();
+  const taskNameInput = useRef<HTMLInputElement>(null);
+
+  // o cycles so e atualizado depois de enviar o form
+  const nextCycle = getNextCycles(state.currentCycle);
+
+  // envio do formulário
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("Form submitted");
+
+    // o input existe?
+    if (taskNameInput.current === null) return;
+
+    const taskName = taskNameInput.current.value.trim();
+
+    if (!taskName) {
+      alert("Please enter a task name.");
+      return;
+    }
+
+    // apenas criaste uma variável. com o modelo de dados TaskModel.
+    const newTask: TaskModel = {
+      id: Date.now().toString(),
+      name: taskName,
+      startDate: Date.now(),
+      completeDate: null,
+      interruptDate: null,
+      duration: 1,
+      type: "workTime",
+    };
+
+    const secondsRemaining = newTask.duration * 60;
+
+    setState((prevState) => {
+      return {
+        ...prevState,
+        config: { ...prevState.config },
+        activeTask: newTask,
+        currentCycle: nextCycle,
+        secondsRemaining,
+        formattedSecondsRemaining: "00:00",
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
   }
 
-  const [tankName, setTaskName] = useState(" ");
+  const [taskName, setTaskName] = useState("");
 
   return (
     <>
@@ -22,8 +66,9 @@ export function Form() {
             type="text"
             labelText="Task"
             placeholder="What do you want to do?"
-            value={tankName}
+            value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
+            ref={taskNameInput}
           />
         </div>
 
