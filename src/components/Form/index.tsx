@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from "lucide-react";
+import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
 import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
 import { DefaultButton } from "../DefaultButton";
@@ -58,6 +58,22 @@ export function Form() {
     });
   }
 
+  const handleInterruptTask = () => {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemaining: 0,
+        formattedSecondsRemaining: "00:00",
+        tasks: prevState.tasks.map((task) => {
+          if (prevState.activeTask && prevState.activeTask.id === task.id) {
+            return { ...task, interruptDate: Date.now() };
+          }
+        }),
+      };
+    });
+  };
+
   const [taskName, setTaskName] = useState("");
 
   return (
@@ -72,6 +88,7 @@ export function Form() {
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
             ref={taskNameInput}
+            disabled={!!state.activeTask}
           />
         </div>
 
@@ -85,7 +102,26 @@ export function Form() {
           </div>
         )}
         <div className={styles.formRow}>
-          <DefaultButton color="green" icon={<PlayCircleIcon />} />
+          {!state.activeTask ? (
+            <DefaultButton
+              aria-label="Start task"
+              title="Start task"
+              type="submit"
+              color="green"
+              icon={<PlayCircleIcon />}
+              key="start-task-button"
+            />
+          ) : (
+            <DefaultButton
+              aria-label="Stop task"
+              title="Stop task"
+              type="button"
+              color="red"
+              icon={<StopCircleIcon />}
+              onClick={handleInterruptTask}
+              key="stop-task-button"
+            />
+          )}
         </div>
       </form>
     </>
