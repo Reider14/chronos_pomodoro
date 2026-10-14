@@ -10,7 +10,6 @@ import { getNextCycles } from "../../utils/getNextCycles";
 import { getNextCyclesType } from "../../utils/getNextCyclesType";
 import { TaskActionTypes } from "../../context/TaskContext/taskActions";
 import { Tips } from "../Tips";
-import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
 import { toast } from "react-toastify";
 import { showMessage } from "../../adaptars/showMessage";
 

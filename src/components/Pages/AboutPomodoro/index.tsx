@@ -3,7 +3,7 @@ import { GenericHtml } from "../../GenericHtml";
 import { Heading } from "../../Heading";
 import { MainTemplates } from "../../Templates/MainTemplatest";
 
-export function Not_Found() {
+export function AboutPomodoro() {
   return (
     <>
       <MainTemplates>
