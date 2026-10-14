@@ -16,6 +16,7 @@ import { showMessage } from "../../adaptars/showMessage";
 export function Form() {
   const { state, dispatch } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
+  const lastTaskName = state.tasks[state.tasks.length - 1]?.name || "";
 
   // o cycles so e atualizado depois de enviar o form
   const nextCycle = getNextCycles(state.currentCycle);
@@ -72,6 +73,7 @@ export function Form() {
             onChange={(e) => setTaskName(e.target.value)}
             ref={taskNameInput}
             disabled={!!state.activeTask}
+            defaultValue={lastTaskName}
           />
         </div>
 

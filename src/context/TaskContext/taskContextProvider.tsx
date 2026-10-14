@@ -43,6 +43,8 @@ export const TaskContextProvider = ({ children }: taskContextProviderProps) => {
       worker.terminate();
     }
 
+    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
+
     worker.postMessage(state);
   }, [worker, state]);
 
