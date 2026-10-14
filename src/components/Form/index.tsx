@@ -11,6 +11,8 @@ import { getNextCyclesType } from "../../utils/getNextCyclesType";
 import { TaskActionTypes } from "../../context/TaskContext/taskActions";
 import { Tips } from "../Tips";
 import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
+import { toast } from "react-toastify";
+import { showMessage } from "../../adaptars/showMessage";
 
 export function Form() {
   const { state, dispatch } = useTaskContext();
@@ -24,13 +26,15 @@ export function Form() {
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    toast.dismiss();
+
     // o input existe?
     if (taskNameInput.current === null) return;
 
     const taskName = taskNameInput.current.value.trim();
 
     if (!taskName) {
-      alert("Please enter a task name.");
+      showMessage.warn("Digite o nome da tarefa!");
       return;
     }
 
@@ -50,6 +54,8 @@ export function Form() {
 
   const handleInterruptTask = () => {
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
+    toast.dismiss();
+    showMessage.error("Tarefa interrompida!");
   };
 
   const [taskName, setTaskName] = useState("");
