@@ -9,6 +9,8 @@ import type { TaskModel } from "../../model/taskModel";
 import { getNextCycles } from "../../utils/getNextCycles";
 import { getNextCyclesType } from "../../utils/getNextCyclesType";
 import { TaskActionTypes } from "../../context/TaskContext/taskActions";
+import { Tips } from "../Tips";
+import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
 
 export function Form() {
   const { state, dispatch } = useTaskContext();
@@ -69,7 +71,7 @@ export function Form() {
         </div>
 
         <div className={styles.formRow}>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <Tips />
         </div>
 
         {state.currentCycle > 0 && (

@@ -25,7 +25,7 @@ export function Cycles() {
           const nextCycleType = getNextCyclesType(nextCycle);
           return (
             <span
-              key={`$nextCycleType}_nextCycle`}
+              key={`${nextCycleType}_${nextCycle}`}
               className={`${styles.cyclesDot} ${styles[nextCycleType]}`}
               aria-label={`Indicador de ciclo de ${cycleDescription[nextCycleType]}`}
               title={`Indicador de ciclo de ${cycleDescription[nextCycleType]}`}
